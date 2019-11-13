@@ -765,7 +765,11 @@ a{
 	background-color: #737c85;
 	border-color: #737c85;
 }
-
+.timo-compile .timo-finally .btn-dangqi{
+	color: #FFF;
+	background-color: #0e9c38;
+	border-color: #737c85;
+}
 /* 详细页面 */
 .timo-detail-page{
 	padding: 12px;

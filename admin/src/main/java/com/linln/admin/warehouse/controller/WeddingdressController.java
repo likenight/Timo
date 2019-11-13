@@ -79,6 +79,9 @@ public class WeddingdressController {
     @RequiresPermissions({"warehouse:weddingdress:add", "warehouse:weddingdress:edit"})
     @ResponseBody
     public ResultVo save(@Validated WeddingdressValid valid, Weddingdress weddingdress) {
+        if (weddingdress.getImage() == null || weddingdress.getImage().equals("")){
+            weddingdress.setImage("/upload/images/default.jpg");
+        }
         // 复制保留无需修改的数据
         if (weddingdress.getId() != null) {
             Weddingdress beWeddingdress = weddingdressService.getById(weddingdress.getId());

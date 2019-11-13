@@ -48,9 +48,32 @@ public class Weddingdress implements Serializable {
     private String serial;
     // 店内编码
     private String identifier;
+
+    // 厂家
+    private String factory;
+    // 分类
+    private String type1;
+    // 类别
+    private String type2;
+    // 规格
+    private String standard;
+    // 样式
+    private String style;
+    // 颜色
+    private String color;
+    // 备附配件
+    private String attachment;
+    // 数量
+    private Integer num;
+    // 单价
+    private Float price;
+    // 排序
+    private Integer sort;
     // 图片
 
     private String image;
+
+
     // 备注
     private String remark;
     // 创建时间

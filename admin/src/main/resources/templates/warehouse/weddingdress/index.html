@@ -10,6 +10,10 @@
 
     .widget-small {
         background-color: #FFFFFF;
+        border-style: solid;
+        border-width: 1px ;
+        border-color: rgba(218, 201, 216, 0.58);
+
         overflow: hidden;
         text-align: center;
         border-radius: 2px;
@@ -43,25 +47,46 @@
         float: left;
         text-align: left;
         width: 40%;
-        margin-left: 20px;
-        margin-top: 18px;
+        margin-left: 0px;
+        margin-top: 10px;
         line-height: 24px;
     }
 
     .widget-small-info1 {
-        float: right;
+        float: left;
         text-align: left;
-        width: 20%;
-        margin-left: 20px;
-        margin-top: 18px;
+        width: 30%;
+        margin-left: 0px;
+        margin-top: 10px;
         line-height: 24px;
     }
-
+    .widget-small-info2 {
+        float: right;
+        text-align: right;
+        width: 30%;
+        height: 60%;
+        margin-left: 0px;
+        margin-top: 10px;
+        line-height: 24px;
+    }
     .widget-small-info h4 {
         font-size: 18px;
+        overflow: hidden;
+        text-overflow:ellipsis;
+        white-space: nowrap;
+    }
+    .widget-small-info1 h4 {
+        font-size: 18px;
+        overflow: hidden;
+        text-overflow:ellipsis;
+        white-space: nowrap;
     }
 
     .widget-small-info span {
+        font-size: 16px;
+    }
+
+    .widget-small-info1 span {
         font-size: 16px;
     }
 
@@ -91,6 +116,12 @@
         color: #31708f;
         background-color: #d9edf7;
         border-color: #bce8f1;
+    }
+
+    .btn-dangqi{
+        height: 60%;
+        width: 100%;
+        background-color: #00B83F;
     }
 </style>
 <body class="timo-layout-page">
@@ -161,16 +192,39 @@
                 <div class="layui-row layui-col-space15">
 
                     <div class="layui-col-md2  layui-col-sm3 layui-col-xs12" th:each="item:${list}">
-                        <div class="widget-small widget-like">
-                            <a class="open-popup" data-title="详细信息" th:attr="data-url=@{'/warehouse/weddingdress/edit/'+${item.id}}"
-                               data-size="800,600" href="#">
+                        <div class="widget-small widget-like ">
+                            <a class="open-popup" data-title="详细信息"
+                               th:attr="data-url=@{'/warehouse/weddingdress/edit/'+${item.id}}"
+                               data-size="max" href="#">
 
-                                <img style="width: 100%; height:300px" th:src="@{/images/weddingdress/p1.jpg}"/>
+                                <img style="width: 100%; height:300px" th:src="@{${item.image?.split(',')[0]}}"/>
 
                             </a>
                             <div class="widget-small-info">
-                                <h4>收藏</h4>
-                                <span th:text="${item.name}"></span>
+
+                                    <h4 th:text="${item.identifier}"></h4>
+                                    <h4 th:text="${item.name}"></h4>
+
+
+                            </div>
+                            <div class="widget-small-info1">
+
+
+                                    <h4 th:text="${#dicts.keyValue('WEDDING_TYPE1',item.type1)}"></h4>
+                                    <h4 th:text="${item.color}"></h4>
+
+                            </div>
+
+                            <div class="widget-small-info2 ">
+
+
+
+
+                                    <button class="layui-btn  btn-dangqi" style="height: 45px"><i class="fa  fa-bar-chart" style="height: 45px"></i> 档期</button>
+
+
+
+
                             </div>
                         </div>
                     </div>
